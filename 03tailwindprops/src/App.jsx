@@ -6,12 +6,17 @@ import Card from '../components/Card'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let myobj={
+    username:"payal misra",
+    age:21
+  }
+  let newArr=[1,2,3];
   return (
     <>
        <h1 className='bg-green-400 text-black p-4 rounded-xl mb-4'>tailwind test</h1>
-        <Card />
-        <Card />
+        {/* <Card channel='payal study' someobj={myobj} someobje={newArr}/> */}
+        <Card username='payal' btnText='click me'/>
+        <Card username='lory'  />
     </>
   )
 }
