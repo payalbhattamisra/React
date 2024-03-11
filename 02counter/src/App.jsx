@@ -8,9 +8,21 @@ function App() {
    let [counter,setCounter]=useState(15);
     //let counter=15;
     const addcounter=() => {
-      counter=counter+1;
-      console.log("clicked",counter);
-      setCounter(counter);
+      // counter=counter+1;
+      // console.log("clicked",counter);
+      // setCounter(counter);
+
+      // setCounter(counter+1);
+      // setCounter(counter+1);
+      // setCounter(counter+1);
+      // setCounter(counter+1);
+      // only 1 increase bcz of useState
+
+      setCounter((prevCounter)=>prevCounter+1);
+      setCounter((prevCounter)=>prevCounter+1);
+      setCounter((prevCounter)=>prevCounter+1);
+      setCounter((prevCounter)=>prevCounter+1);
+      //here function (()=>{});but {} by using this you have to return something so not use ...use to store prevcounter and then update 
      }
      const removecounter=()=>{
      // console.log("clicked",counter);
