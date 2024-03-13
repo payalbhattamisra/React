@@ -22,7 +22,9 @@ function App() {
 setpassword(pass);
   },[length,numberAllowed,charAllowed,setpassword]);//setpassword for optimize the password,if you use password but infinite loop started
  
-  const copytoClipboard =useCallback(()=>{//use callback for optimize
+  const copytoClipboard =useCallback(()=>{//use callback for optimize or function memorize
+  passwordref.current?.select()
+  passwordref.current?.setSelectionRange(0,3)
   window.navigator.clipboard.writeText(password);
   },[password]);
   //you can't call directly password generator like passwordGenerator();so use useEffect (here it does't want to store you can call directly)
@@ -55,6 +57,7 @@ setpassword(pass);
       className='cursor-pointer'
       onChange={(e)=>{setLength(e.target.value)}}
       />
+
       <label >Length:{length}</label>
      </div>
      <div className='flex items-center gap-x-1'>
