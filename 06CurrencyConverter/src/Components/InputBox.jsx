@@ -1,34 +1,37 @@
+import React, {useId} from 'react'
 //remove redudency and use repeatedly
-import React from 'react'
+//useId=>generating unique id for accessibility ..key generation time do not use
 
 function InputBox({
     label,
     amount,
     onAmountChange,
     onCurrencyChange,
-    currencyOptions=[],
-    selectCurrency="usd",
-    amountDisable=false,
-    currencyDisable=false,
+    currencyOptions = [],
+    selectCurrency = "usd",
+    amountDisable = false,
+    currencyDisable = false,
     className = "",
 }) {
-   
+   const amountInputId = useId()
 
     return (
-        <div className={`bg-white p-3 rounded-lg text-sm flex ${className} `}>
+        <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
             <div className="w-1/2">
-                <label  className="text-black/40 mb-2 inline-block">
+                <label htmlFor={amountInputId}  className="text-black/40 mb-2 inline-block">
                     {label}
                 </label>
                 <input
-                    
+                    id={amountInputId}
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
                     placeholder="Amount"
                     disabled={amountDisable}
                     value={amount}
-                    onChange={(e)=> onAmountChange && onAmountChange(Number(e.target.value))}
+                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+                    
                     //&& onAmountChange(Number(e.target.value)) use bcz if user doesn't put any value then NUmber use bcz string convert it to number for amt
+
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -36,16 +39,17 @@ function InputBox({
                 <select
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                     value={selectCurrency}
-                    onChange={(e)=>onCurrencyChange && onCurrencyChange(e.target.value)}
-                    //here string required so no number use
+                    onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                     disabled={currencyDisable}
+                     //here string required so no number use
+
                 >
                     
-                         {currencyOptions.map((currency)=>(
-                          <option key={currency}value={currency}>
-                           {currency}
-                          </option>
-                         ))}
+                        {currencyOptions.map((currency) => (
+                            <option key={currency} value={currency}>
+                            {currency}
+                            </option>
+                        ))}
                 
                 </select>
             </div>
