@@ -12,6 +12,7 @@ function App() {
       <Login/>
       <Profile/>
     </UserContextProvider>
+  //  (usercontextprovider created where user,setuser data send acces login,profile page )
   )
 }
 
