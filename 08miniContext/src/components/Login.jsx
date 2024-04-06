@@ -1,6 +1,6 @@
 import React ,{ useState,useContext} from 'react'
 import  UserContext  from '../context/UserContext'
-import UserContextProvider from '../context/UserContextProvider';
+ 
 
 function Login() {
   const [username,setUsername]=useState('');
@@ -12,7 +12,7 @@ function Login() {
   }
   
   return (
-    <div >
+    <div>
       <h2>Login</h2>
       <input type="text"   
       value={username} onChange={(e)=>setUsername(e.target.value)}
