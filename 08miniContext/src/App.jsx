@@ -1,17 +1,17 @@
  
 import Login from './components/Login'
 import Profile from './components/Profile'
-import userContextProvider from './context/userContextProvider'
+import UserContextProvider from './context/UserContextProvider'
 import UserContext from './context/UserContext'
 function App() {
   
 
   return (
-    <userContextProvider>
+    <UserContextProvider>
       <h1>hy payal</h1>
       <Login/>
       <Profile/>
-    </userContextProvider>
+    </UserContextProvider>
   )
 }
 
